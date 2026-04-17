@@ -3,22 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pousada Off-Road Adventure | Motocross & Gaiolas</title>
-    <!-- Fontes e Ícones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-    
+    <title>Agrinho 2026 | SENAR-PR & SEED-PR | Agro Forte, Futuro Sustentável</title>
     <style>
-        /* --- CSS CONSOLIDADO --- */
-        :root {
-            --primary: #ff4d00; /* Laranja Lama/Adrenalina */
-            --secondary: #1a1a1a; /* Preto Asfalto/Terra */
-            --accent: #ffd700; /* Amarelo Alerta */
-            --text-light: #f4f4f4;
-            --text-dark: #333;
-            --transition: all 0.3s ease;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -26,403 +12,425 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #0f0f0f;
-            color: var(--text-light);
-            line-height: 1.6;
-            overflow-x: hidden;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f0f7e8;
+            color: #1e2f1c;
+            line-height: 1.5;
         }
 
-        /* Navegação */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0,0,0,0.9);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            border-bottom: 2px solid var(--primary);
-        }
-
-        .logo {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 2.5rem;
-            color: var(--primary);
-            text-decoration: none;
-            letter-spacing: 2px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 2rem;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        /* Hero Section */
+        /* header com tema agro/sustentabilidade */
         .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1558981285-6f0c94958bb6?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            background: linear-gradient(135deg, #1a4d2a, #0b3b1f);
+            color: white;
+            padding: 2.5rem 1.5rem;
             text-align: center;
-            padding: 0 1rem;
+            border-bottom: 6px solid #f9b81b;
         }
 
         .hero h1 {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 5rem;
-            margin-bottom: 1rem;
-            color: white;
-            text-shadow: 3px 3px 10px rgba(0,0,0,0.8);
+            font-size: 2.4rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .hero h1 span {
+            color: #ffdd77;
         }
 
         .hero p {
-            font-size: 1.5rem;
-            max-width: 800px;
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-
-        .cta-btn {
-            background: var(--primary);
-            color: white;
-            padding: 1rem 2.5rem;
             font-size: 1.2rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: var(--transition);
-            text-decoration: none;
+            max-width: 800px;
+            margin: 0.75rem auto 0;
+            opacity: 0.9;
         }
 
-        .cta-btn:hover {
-            background: #e64500;
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(255, 77, 0, 0.4);
+        .logos {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+            font-weight: 500;
+            font-size: 1rem;
         }
 
-        /* Seções Gerais */
-        section {
-            padding: 100px 10%;
+        .logos div {
+            background: rgba(255,255,240,0.15);
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            backdrop-filter: blur(2px);
         }
 
-        .section-title {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 3.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--primary);
+        .container {
+            max-width: 1300px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* cards e seções */
+        .card {
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            overflow: hidden;
+            transition: all 0.2s;
+            border: 1px solid #ddebd8;
+        }
+
+        .card-header {
+            background: #eef4e9;
+            padding: 1.2rem 2rem;
+            border-bottom: 2px solid #c0dfb1;
+        }
+
+        .card-header h2 {
+            color: #1f5437;
+            font-size: 1.7rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .card-header h2 i {
+            font-size: 1.8rem;
+        }
+
+        .card-body {
+            padding: 1.8rem 2rem;
+        }
+
+        .badge {
+            background: #f9b81b20;
+            color: #8a6100;
+            border-radius: 40px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 0.8rem;
+        }
+
+        .grid-subcats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .subcat {
+            background: #fefce8;
+            flex: 1 1 260px;
+            border-radius: 24px;
+            padding: 1rem 1.2rem;
+            border-left: 8px solid #6c9e4a;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+
+        .subcat h3 {
+            color: #2c6e3c;
+            margin-bottom: 0.6rem;
+        }
+
+        .info-list {
+            list-style: none;
+            margin: 0.8rem 0;
+        }
+
+        .info-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.4rem;
             position: relative;
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 4px;
-            background: var(--accent);
-            margin: 10px auto;
+        .info-list li::before {
+            content: "🌱";
+            position: absolute;
+            left: 0;
+            top: 0;
         }
 
-        /* Máquinas/Cards */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        .highlight {
+            background: #e9f4e3;
+            border-radius: 20px;
+            padding: 0.8rem 1.2rem;
+            margin: 1rem 0;
+            border-left: 4px solid #f9b81b;
         }
 
-        .card {
-            background: #1a1a1a;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: var(--transition);
-            border: 1px solid #333;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-        }
-
-        .card-img {
-            height: 250px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .card-content {
-            padding: 1.5rem;
-        }
-
-        .card-content h3 {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            color: var(--accent);
-        }
-
-        /* Formulário de Reserva */
-        .booking-section {
-            background: #050505;
-        }
-
-        .form-container {
-            max-width: 700px;
-            margin: 0 auto;
-            background: #111;
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 0 30px rgba(0,0,0,0.5);
-            border-left: 5px solid var(--primary);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-            color: var(--accent);
-        }
-
-        .form-group input, .form-group select, .form-group textarea {
+        table {
             width: 100%;
-            padding: 0.8rem;
-            background: #222;
-            border: 1px solid #444;
-            color: white;
-            border-radius: 5px;
-            font-family: inherit;
+            border-collapse: collapse;
+            margin: 1rem 0;
         }
 
-        .form-group input:focus {
-            outline: none;
-            border-color: var(--primary);
+        th, td {
+            border: 1px solid #cde0c4;
+            padding: 0.7rem;
+            text-align: left;
+            vertical-align: top;
         }
 
-        .submit-btn {
-            width: 100%;
-            padding: 1rem;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 5px;
+        th {
+            background: #e0f0da;
+            font-weight: 600;
+        }
+
+        .etapa {
+            background: #faf9f0;
+            border-radius: 20px;
+            padding: 1rem 1.4rem;
+            margin-bottom: 1rem;
+            border: 1px solid #e2e9d8;
+        }
+
+        .etapa strong {
+            color: #1e6e3e;
             font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: var(--transition);
         }
 
-        .submit-btn:hover {
-            background: #e64500;
-        }
-
-        /* Footer */
-        footer {
-            background: #000;
-            padding: 3rem 10%;
-            text-align: center;
-            border-top: 1px solid #222;
-        }
-
-        .social-icons {
-            margin-bottom: 1.5rem;
-        }
-
-        .social-icons a {
+        .btn-link {
+            background: #1f5437;
             color: white;
-            font-size: 1.5rem;
-            margin: 0 1rem;
-            transition: var(--transition);
+            text-decoration: none;
+            padding: 0.3rem 0.8rem;
+            border-radius: 26px;
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.2s;
         }
 
-        .social-icons a:hover {
-            color: var(--primary);
+        .btn-link:hover {
+            background: #0f3a24;
         }
 
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 3rem; }
-            .nav-links { display: none; } /* Menu hamburguer simplificado para o exemplo */
-            section { padding: 60px 5%; }
+        footer {
+            background: #1c2e1a;
+            color: #cfdec9;
+            text-align: center;
+            padding: 1.8rem;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+        }
+
+        .rubric-table td {
+            background: #fff;
+        }
+
+        @media (max-width: 760px) {
+            .card-body {
+                padding: 1.2rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navegação -->
-    <nav>
-        <a href="#" class="logo">OFF-ROAD <span style="color:white">POUSADA</span></a>
-        <ul class="nav-links">
-            <li><a href="#inicio">Início</a></li>
-            <li><a href="#aventura">Aventura</a></li>
-            <li><a href="#maquinas">Máquinas</a></li>
-            <li><a href="#reserva">Reservas</a></li>
-        </ul>
-    </nav>
+<div class="hero">
+    <h1>🌾 <span>Agro forte, futuro sustentável</span> 🌿</h1>
+    <p>Equilíbrio entre produção e meio ambiente — Concurso de Programação 2026</p>
+    <div class="logos">
+        <div>SENAR-PR</div>
+        <div>SEED-PR</div>
+        <div>Programação Paraná</div>
+    </div>
+</div>
 
-    <!-- Hero -->
-    <section id="inicio" class="hero">
-        <h1>ACELERE NA TERRA</h1>
-        <p>A única pousada onde o check-in é feito com o pé no acelerador. Motocross, Gaiolas e Carros Preparados em trilhas brutais.</p>
-        <a href="#reserva" class="cta-btn">Agende sua Experiência</a>
-    </section>
+<div class="container">
+    <!-- TEMA + OBJETIVO -->
+    <div class="card">
+        <div class="card-header">
+            <h2>🌍 Tema & Objetivo</h2>
+        </div>
+        <div class="card-body">
+            <div class="highlight">
+                <strong>🌱 Tema:</strong> “Agro forte, futuro sustentável: equilíbrio entre produção e meio ambiente”
+            </div>
+            <p><strong>🎯 Objetivo:</strong> Incentivar e valorizar o ensino de tecnologia e programação, oportunizando estudantes dos Ensinos Fundamental e Médio da rede pública estadual a desenvolverem desafios, aplicando conhecimentos dos componentes curriculares de <strong>Educação Digital e Computação, Programação, Robótica, IA, Pensamento Computacional e Matemática II</strong>.</p>
+        </div>
+    </div>
 
-    <!-- Sobre a Aventura -->
-    <section id="aventura">
-        <h2 class="section-title">Aventura sem Limites</h2>
-        <div class="grid-container">
-            <div style="text-align: center; padding: 2rem;">
-                <i class="fas fa-motorcycle fa-4x" style="color: var(--primary); margin-bottom: 1rem;"></i>
-                <h3>Pistas de Motocross</h3>
-                <p>Circuitos profissionais com saltos, curvas de alta e muita lama para testar sua habilidade.</p>
+    <!-- PARTICIPANTES + REQUISITOS -->
+    <div class="card">
+        <div class="card-header">
+            <h2>📌 Quem pode participar?</h2>
+        </div>
+        <div class="card-body">
+            <p>Inscrições até <strong>14/06/2026 (23h59, horário de Brasília)</strong>. É necessário estar matriculado na rede pública do Paraná e cumprir os requisitos específicos conforme série/componente:</p>
+            <ul class="info-list">
+                <li><strong>Ensino Fundamental (Anos Finais):</strong> matriculado em Educação Digital e Computação: Programação e Robótica <strong>ou</strong> Programação e IA, com mínimo de 2 unidades concluídas na Alura (Trilha 2026).</li>
+                <li><strong>1ª série EM:</strong> Programação e IA + 2 unidades Alura.</li>
+                <li><strong>2ª série EM:</strong> componente curricular Programação + 2 unidades Alura.</li>
+                <li><strong>3ª série EM:</strong> Pensamento Computacional, Pensamento Computacional I ou Matemática II + 2 unidades Alura.</li>
+            </ul>
+            <p class="badge">⚠️ Unidades de divulgação do concurso Agrinho 2026 não contam para o mínimo exigido.</p>
+        </div>
+    </div>
+
+    <!-- SUBCATEGORIAS -->
+    <div class="card">
+        <div class="card-header">
+            <h2>🎮 Subcategorias | Organização</h2>
+        </div>
+        <div class="card-body">
+            <div class="grid-subcats">
+                <div class="subcat">
+                    <h3>🧩 Subcategoria 1</h3>
+                    <p><strong>Linguagem Scratch</strong><br>6° e 7° anos do EF<br>Matriculados em <em>Programação e Robótica</em>.</p>
+                </div>
+                <div class="subcat">
+                    <h3>🎨 Subcategoria 2</h3>
+                    <p><strong>Linguagem Scratch</strong><br>8° e 9° anos do EF<br>Componentes: <em>Programação e Robótica</em> ou <em>Programação e IA</em>.</p>
+                </div>
+                <div class="subcat">
+                    <h3>💻 Subcategoria 3</h3>
+                    <p><strong>Front-End (HTML, CSS, JavaScript)</strong><br>Ensino Médio (todas as séries que atendam item 3)<br>Componentes: Programação e Robótica/IA, Pensamento Computacional, Matemática II etc.</p>
+                </div>
             </div>
-            <div style="text-align: center; padding: 2rem;">
-                <i class="fas fa-car-side fa-4x" style="color: var(--primary); margin-bottom: 1rem;"></i>
-                <h3>Gaiolas & UTVs</h3>
-                <p>Sinta a força do motor em nossas gaiolas preparadas para encarar qualquer erosão.</p>
-            </div>
-            <div style="text-align: center; padding: 2rem;">
-                <i class="fas fa-mountain fa-4x" style="color: var(--primary); margin-bottom: 1rem;"></i>
-                <h3>Trilhas Noturnas</h3>
-                <p>Para os mais corajosos, expedições guiadas sob a luz da lua e faróis auxiliares.</p>
+            <p class="highlight">⚠️ O estudante deve se inscrever na subcategoria compatível com sua matrícula, sob pena de desclassificação (verificação pelos NREs).</p>
+        </div>
+    </div>
+
+    <!-- INSCRIÇÃO E PRAZOS -->
+    <div class="card">
+        <div class="card-header">
+            <h2>📝 Inscrição e Envio</h2>
+        </div>
+        <div class="card-body">
+            <p><strong>✅ Como se inscrever:</strong> Os projetos devem ser enviados <strong>até 14/06/2026</strong> por meio da unidade destinada ao Agrinho 2026 dentro do <strong>Ambiente Virtual de Aprendizagem em Programação (Alura)</strong>. Somente o link do projeto é submetido.</p>
+            <ul class="info-list">
+                <li><strong>Scratch (Subcat. 1 e 2):</strong> link público, sem remix, compartilhamento habilitado. Ex: <code>https://scratch.mit.edu/projects/1234567890</code></li>
+                <li><strong>Front-End (Subcat. 3):</strong> repositório público no GitHub com todos os arquivos (HTML, CSS, JS); <strong>inline CSS/JS não permitido</strong>; deve ter GitHub Pages ou Vercel funcional; sem frameworks. Repositórios mesclados ou cópias idênticas causam desclassificação.</li>
+            </ul>
+            <div class="highlight">
+                🚨 <strong>ATENÇÃO:</strong> Após o prazo final (14/06/2026 23h59) nenhuma alteração será aceita. Projetos alterados posteriormente serão desclassificados.
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Nossas Máquinas -->
-    <section id="maquinas" style="background: #111;">
-        <h2 class="section-title">Nossas Máquinas</h2>
-        <div class="grid-container">
-            <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1591439657848-9f4b9ce436b9?auto=format&fit=crop&q=80&w=600');"></div>
-                <div class="card-content">
-                    <h3>Motocross 450cc</h3>
-                    <p>Motos de competição ajustadas para o nosso terreno. Potência bruta para quem não tem medo de voar.</p>
-                </div>
+    <!-- ETAPAS DO CONCURSO -->
+    <div class="card">
+        <div class="card-header">
+            <h2>🏆 Etapas do Concurso</h2>
+        </div>
+        <div class="card-body">
+            <div class="etapa">
+                <strong>📚 Etapa Escolar (até junho/2026)</strong><br>
+                • Professores regentes organizam a banca avaliadora na escola.<br>
+                • Cada instituição seleciona: <strong>até 3 projetos por subcategoria</strong> (total máximo 9 projetos).<br>
+                • Os selecionados devem ser enviados ao NRE via formulário institucional (e-mail @escola.pr.gov.br) entre <strong>29/06/2026 e 01/07/2026</strong>.<br>
+                • Documentos obrigatórios: Termo de consentimento (responsável legal para menores), Termo de uso de imagem, dados do estudante/professor, descrição do projeto conforme template do site oficial.
             </div>
-            <div class="card">
-                <div class="card-img" style="background-image: url('https://br.pinterest.com/danielcosta411/gaiola-4x2/');"></div>
-                <div class="card-content">
-                    <h3>Gaiola Turbo 4x2</h3>
-                    <p>Leves, rápidas e extremamente divertidas. O equilíbrio perfeito entre perigo e controle.</p>
-                </div>
+            <div class="etapa">
+                <strong>🌎 Etapa Regional (NRE)</strong><br>
+                • Cada NRE forma banca com pelo menos 3 avaliadores (embaixadores da Programação Paraná).<br>
+                • Cada NRE seleciona até 3 projetos por subcategoria (Scratch sub1, Scratch sub2, Front-end sub3).<br>
+                • Avaliação baseada na Rubrica (0-100) considerando originalidade, qualidade de código, alinhamento ao tema. Nota final pela média das bancas.
             </div>
-            <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&q=80&w=600');"></div>
-                <div class="card-content">
-                    <h3>Jipes 4x4 Preparados</h3>
-                    <p>Suspensão elevada, pneus 35" e guinchos. Nada para esses monstros nas trilhas pesadas.</p>
-                </div>
+            <div class="etapa">
+                <strong>🏅 Etapa Estadual</strong><br>
+                • Finalistas regionais concorrem às premiações finais. Os critérios de desempate incluem inovação, impacto sustentável e boas práticas de programação.
+            </div>
+            <p><em>Decisões das bancas são soberanas, sem possibilidade de recurso.</em></p>
+        </div>
+    </div>
+
+    <!-- RUBRICA DE AVALIAÇÃO (item 8 do regulamento) -->
+    <div class="card">
+        <div class="card-header">
+            <h2>📋 Rubrica de Avaliação (0 a 100 pts)</h2>
+        </div>
+        <div class="card-body">
+            <table class="rubric-table">
+                <thead>
+                    <tr><th>Critério</th><th>Descrição</th><th>Pontuação</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>🌿 Adequação ao tema</td><td>Abordagem do equilíbrio entre produção agropecuária e meio ambiente, sustentabilidade, tecnologia no campo.</td><td>até 30 pts</td></tr>
+                    <tr><td>💡 Criatividade / Originalidade</td><td>Ideias inovadoras, narrativa ou interação diferenciada, não cópia de projetos existentes.</td><td>até 25 pts</td></tr>
+                    <tr><td>🛠️ Qualidade técnica / Código</td><td>Scratch: uso adequado de blocos, lógica, eventos; Front-end: HTML/CSS/JS bem estruturados, sem inline, sem frameworks, repositório organizado, pages funcional.</td><td>até 25 pts</td></tr>
+                    <tr><td>🎯 Funcionalidade & Experiência</td><td>Projeto executável sem erros, usabilidade, responsividade (para front-end), interatividade, clareza das instruções.</td><td>até 20 pts</td></tr>
+                </tbody>
+            </table>
+            <p><strong>Desempate:</strong> originalidade e qualidade de código. Projetos idênticos entre diferentes alunos serão desclassificados. Cópia de repositórios ou remix não permitido para Scratch.</p>
+        </div>
+    </div>
+
+    <!-- DOCUMENTAÇÃO E LINKS IMPORTANTES -->
+    <div class="card">
+        <div class="card-header">
+            <h2>🔗 Links e Documentação Oficial</h2>
+        </div>
+        <div class="card-body">
+            <p>Os documentos abaixo são obrigatórios no ato da inscrição regional (formulário NRE):</p>
+            <ul class="info-list">
+                <li><strong>Termo de consentimento (menor de idade)</strong> – assinado pelo responsável legal</li>
+                <li><strong>Termo de uso de imagem (maior de idade)</strong> – disponível no site do concurso</li>
+                <li>Template de descrição do projeto conforme modelo: <a href="https://www.sistemafaep.org.br/agrinho/" target="_blank" class="btn-link">sistemafaep.org.br/agrinho/ ↗</a></li>
+                <li>Site oficial da Programação Paraná: <a href="https://www.educacao.pr.gov.br/programacao" target="_blank" class="btn-link">educacao.pr.gov.br/programacao ↗</a></li>
+            </ul>
+            <div class="highlight">
+                📌 <strong>IMPORTANTE:</strong> O envio dos projetos à etapa regional deve ser feito exclusivamente pelo professor responsável usando e-mail institucional (@escola.pr.gov.br), através do formulário específico do NRE. Não serão aceitos envios por e-mail comum ou outros meios.
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Reservas -->
-    <section id="reserva" class="booking-section">
-        <h2 class="section-title">Garanta sua Vaga</h2>
-        <div class="form-container">
-            <form id="bookingForm">
-                <div class="form-group">
-                    <label>Nome Completo</label>
-                    <input type="text" placeholder="Seu nome aqui" required>
-                </div>
-                <div class="form-group">
-                    <label>E-mail</label>
-                    <input type="email" placeholder="contato@exemplo.com" required>
-                </div>
-                <div class="form-group">
-                    <label>Escolha sua Máquina</label>
-                    <select required>
-                        <option value="">Selecione...</option>
-                        <option value="moto">Motocross</option>
-                        <option value="gaiola">Gaiola Off-Road</option>
-                        <option value="jipe">Jipe 4x4 Preparado</option>
-                        <option value="proprio">Trago meu próprio veículo</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Data da Aventura</label>
-                    <input type="date" required>
-                </div>
-                <div class="form-group">
-                    <label>Mensagem / Observações</label>
-                    <textarea rows="4" placeholder="Alguma necessidade especial?"></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Enviar Solicitação de Reserva</button>
-            </form>
+    <!-- CERTIFICADOS E REGRAS FINAIS -->
+    <div class="card">
+        <div class="card-header">
+            <h2>📜 Certificados e Premiações</h2>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <div class="card-body">
+            <p>✔️ <strong>Estudantes não selecionados para a etapa regional</strong>, mas que concluíram a unidade do concurso no ambiente virtual e enviaram link válido, receberão certificado de participação (impresso pela própria escola).<br>
+            ✔️ <strong>Projetos selecionados na etapa escolar</strong> recebem certificados e cerimônia interna de reconhecimento.<br>
+            ✔️ Finalistas estaduais serão premiados conforme divulgação oficial da SEED-PR e SENAR-PR.</p>
+            <p><strong>🚫 Eliminação automática:</strong> Projetos com link inválido, cópia integral (remix ou merge), repositório privado, ausência de termo de consentimento, subcategoria incorreta, ou envio fora do prazo.</p>
         </div>
-        <p>&copy; 2026 Pousada Off-Road Adventure. Desenvolvido para amantes de lama.</p>
-        <p style="font-size: 0.8rem; color: #555; margin-top: 10px;">Localização: Estrada da Serra, Km 42 - Interior</p>
-    </footer>
+    </div>
 
-    <!-- JavaScript Consolidado -->
-    <script>
-        // Smooth Scroll para os links da navegação
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+    <!-- INFORMAÇÕES ADICIONAIS / OBSERVAÇÕES -->
+    <div class="card">
+        <div class="card-header">
+            <h2>⚙️ Orientações Técnicas - Subcategoria 3 (Front-End)</h2>
+        </div>
+        <div class="card-body">
+            <p>✅ Os projetos <strong>HTML/CSS/JS</strong> devem estar em um repositório público GitHub. No campo "About" do repositório, deve estar declarado o link funcional do GitHub Pages ou Vercel.<br>
+            ✅ Não será aceito código CSS ou JavaScript <strong>inline ou interno</strong> dentro do arquivo HTML. Tudo deve estar em arquivos separados (.css / .js) devidamente linkados.<br>
+            ✅ Proibido uso de frameworks (React, Vue, Bootstrap, Tailwind etc). Apenas HTML, CSS puro e JavaScript vanilla.<br>
+            ✅ O projeto precisa estar completo e navegável, de preferência responsivo, abordando a temática “Agro forte, futuro sustentável”.</p>
+            <div class="highlight">
+                🌟 Dica: Capriche na experiência do usuário, na acessibilidade e na mensagem de equilíbrio entre produção rural e preservação ambiental.
+            </div>
+        </div>
+    </div>
 
-        // Feedback do formulário
-        document.getElementById('bookingForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Acelera! Sua solicitação de reserva foi enviada. Entraremos em contato via WhatsApp em breve.');
-            this.reset();
-        });
+    <!-- DATAS RESUMO -->
+    <div class="card">
+        <div class="card-header">
+            <h2>📅 Calendário Resumo</h2>
+        </div>
+        <div class="card-body">
+            <table>
+                <tr><th>Evento</th><th>Prazo / Período</th></tr>
+                <tr><td>Inscrição + envio do link no ambiente virtual (Alura)</td><td>Até 14/06/2026 (23h59)</td></tr>
+                <tr><td>Seleção escolar e encaminhamento ao NRE</td><td>Formulário NRE entre 29/06 e 01/07/2026</td></tr>
+                <tr><td>Avaliação Regional (NRE)</td><td>Julho/2026 (conforme cronograma de cada NRE)</td></tr>
+                <tr><td>Divulgação finalistas estaduais</td><td>A ser divulgada pelos canais oficiais</td></tr>
+            </table>
+            <p style="margin-top: 1rem;">📢 Fique atento às comunicações oficiais do NRE e do site <strong>https://www.sistemafaep.org.br/agrinho/</strong> para resultados e orientações adicionais.</p>
+        </div>
+    </div>
+</div>
 
-        // Efeito de transparência no menu ao rolar
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.style.background = 'rgba(0,0,0,0.95)';
-                nav.style.padding = '0.5rem 5%';
-            } else {
-                nav.style.background = 'rgba(0,0,0,0.9)';
-                nav.style.padding = '1rem 5%';
-            }
-        });
-    </script>
+<footer>
+    <p>© 2026 Concurso de Programação - SENAR-PR / SEED-PR | "Agro forte, futuro sustentável: equilíbrio entre produção e meio ambiente"</p>
+    <p>Dúvidas: contate os Embaixadores da Programação Paraná no seu Núcleo Regional de Educação.</p>
+</footer>
+
 </body>
 </html>
