@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Agrinho 2026 | SENAR-PR & SEED-PR | Agro Forte, Futuro Sustentável</title>
     <style>
         * {
@@ -219,12 +219,182 @@
             background: #fff;
         }
 
-        @media (max-width: 760px) {
-            .card-body {
-                padding: 1.2rem;
+        /* ---- ESTILOS DO CHATBOT (IA) - CANTO INFERIOR DIREITO ---- */
+        .chatbot-container {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        /* Botão flutuante */
+        .chat-toggle {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(145deg, #1f5437, #14422c);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transition: all 0.2s ease;
+            border: none;
+            color: white;
+            font-size: 32px;
+        }
+
+        .chat-toggle:hover {
+            transform: scale(1.05);
+            background: #2b6e46;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+        }
+
+        /* Janela do chat */
+        .chat-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            max-width: calc(100vw - 40px);
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 20px 35px rgba(0, 20, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: all 0.25s;
+            border: 1px solid #d4e2cc;
+        }
+
+        .chat-header {
+            background: #1f5437;
+            color: white;
+            padding: 1rem 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .chat-header span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .close-chat {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.6rem;
+            cursor: pointer;
+            line-height: 1;
+            opacity: 0.8;
+            transition: 0.1s;
+        }
+
+        .close-chat:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .chat-messages {
+            height: 320px;
+            overflow-y: auto;
+            padding: 1rem;
+            background: #fefef7;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .message {
+            max-width: 85%;
+            padding: 8px 12px;
+            border-radius: 18px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+
+        .bot-message {
+            background: #e9f3e4;
+            color: #1e3a2a;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        .user-message {
+            background: #d9e6d3;
+            color: #0f2c1a;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .chat-input-area {
+            display: flex;
+            border-top: 1px solid #d0e0c8;
+            background: white;
+            padding: 0.6rem;
+            gap: 8px;
+        }
+
+        .chat-input {
+            flex: 1;
+            border: 1px solid #c2d6b8;
+            border-radius: 32px;
+            padding: 8px 14px;
+            font-size: 0.85rem;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .chat-input:focus {
+            border-color: #1f5437;
+            box-shadow: 0 0 0 2px rgba(31,84,55,0.2);
+        }
+
+        .send-btn {
+            background: #1f5437;
+            border: none;
+            color: white;
+            border-radius: 32px;
+            padding: 0 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.85rem;
+        }
+
+        .send-btn:hover {
+            background: #103d28;
+        }
+
+        .chat-footer-note {
+            font-size: 0.7rem;
+            text-align: center;
+            background: #f4faf0;
+            padding: 6px;
+            color: #5c6e53;
+            border-top: 1px solid #e2ecd9;
+        }
+
+        /* esconder janela */
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 560px) {
+            .chat-window {
+                width: 300px;
+                right: 0;
+                bottom: 75px;
             }
-            .hero h1 {
-                font-size: 1.8rem;
+            .chat-messages {
+                height: 280px;
             }
         }
     </style>
@@ -340,7 +510,7 @@
         </div>
     </div>
 
-    <!-- RUBRICA DE AVALIAÇÃO (item 8 do regulamento) -->
+    <!-- RUBRICA DE AVALIAÇÃO -->
     <div class="card">
         <div class="card-header">
             <h2>📋 Rubrica de Avaliação (0 a 100 pts)</h2>
@@ -353,59 +523,57 @@
                 <tbody>
                     <tr><td>🌿 Adequação ao tema</td><td>Abordagem do equilíbrio entre produção agropecuária e meio ambiente, sustentabilidade, tecnologia no campo.</td><td>até 30 pts</td></tr>
                     <tr><td>💡 Criatividade / Originalidade</td><td>Ideias inovadoras, narrativa ou interação diferenciada, não cópia de projetos existentes.</td><td>até 25 pts</td></tr>
-                    <tr><td>🛠️ Qualidade técnica / Código</td><td>Scratch: uso adequado de blocos, lógica, eventos; Front-end: HTML/CSS/JS bem estruturados, sem inline, sem frameworks, repositório organizado, pages funcional.</td><td>até 25 pts</td></tr>
-                    <tr><td>🎯 Funcionalidade & Experiência</td><td>Projeto executável sem erros, usabilidade, responsividade (para front-end), interatividade, clareza das instruções.</td><td>até 20 pts</td></tr>
+                    <tr><td>🛠️ Qualidade técnica / Código</td><td>Scratch: uso adequado de blocos, lógica; Front-end: HTML/CSS/JS bem estruturados, sem inline, repositório organizado, pages funcional.</td><td>até 25 pts</td></tr>
+                    <tr><td>🎯 Funcionalidade & Experiência</td><td>Projeto executável sem erros, usabilidade, responsividade, interatividade.</td><td>até 20 pts</td></tr>
                 </tbody>
             </table>
-            <p><strong>Desempate:</strong> originalidade e qualidade de código. Projetos idênticos entre diferentes alunos serão desclassificados. Cópia de repositórios ou remix não permitido para Scratch.</p>
+            <p><strong>Desempate:</strong> originalidade e qualidade de código. Projetos idênticos entre diferentes alunos serão desclassificados.</p>
         </div>
     </div>
 
-    <!-- DOCUMENTAÇÃO E LINKS IMPORTANTES -->
+    <!-- DOCUMENTAÇÃO E LINKS -->
     <div class="card">
         <div class="card-header">
             <h2>🔗 Links e Documentação Oficial</h2>
         </div>
         <div class="card-body">
-            <p>Os documentos abaixo são obrigatórios no ato da inscrição regional (formulário NRE):</p>
+            <p>Documentos obrigatórios na inscrição regional (formulário NRE):</p>
             <ul class="info-list">
                 <li><strong>Termo de consentimento (menor de idade)</strong> – assinado pelo responsável legal</li>
                 <li><strong>Termo de uso de imagem (maior de idade)</strong> – disponível no site do concurso</li>
-                <li>Template de descrição do projeto conforme modelo: <a href="https://www.sistemafaep.org.br/agrinho/" target="_blank" class="btn-link">sistemafaep.org.br/agrinho/ ↗</a></li>
-                <li>Site oficial da Programação Paraná: <a href="https://www.educacao.pr.gov.br/programacao" target="_blank" class="btn-link">educacao.pr.gov.br/programacao ↗</a></li>
+                <li>Template de descrição do projeto: <a href="https://www.sistemafaep.org.br/agrinho/" target="_blank" class="btn-link">sistemafaep.org.br/agrinho/ ↗</a></li>
+                <li>Programação Paraná: <a href="https://www.educacao.pr.gov.br/programacao" target="_blank" class="btn-link">educacao.pr.gov.br/programacao ↗</a></li>
             </ul>
             <div class="highlight">
-                📌 <strong>IMPORTANTE:</strong> O envio dos projetos à etapa regional deve ser feito exclusivamente pelo professor responsável usando e-mail institucional (@escola.pr.gov.br), através do formulário específico do NRE. Não serão aceitos envios por e-mail comum ou outros meios.
+                📌 Envio à etapa regional: exclusivamente pelo professor com e-mail institucional (@escola.pr.gov.br).
             </div>
         </div>
     </div>
 
-    <!-- CERTIFICADOS E REGRAS FINAIS -->
+    <!-- CERTIFICADOS -->
     <div class="card">
         <div class="card-header">
             <h2>📜 Certificados e Premiações</h2>
         </div>
         <div class="card-body">
-            <p>✔️ <strong>Estudantes não selecionados para a etapa regional</strong>, mas que concluíram a unidade do concurso no ambiente virtual e enviaram link válido, receberão certificado de participação (impresso pela própria escola).<br>
-            ✔️ <strong>Projetos selecionados na etapa escolar</strong> recebem certificados e cerimônia interna de reconhecimento.<br>
-            ✔️ Finalistas estaduais serão premiados conforme divulgação oficial da SEED-PR e SENAR-PR.</p>
-            <p><strong>🚫 Eliminação automática:</strong> Projetos com link inválido, cópia integral (remix ou merge), repositório privado, ausência de termo de consentimento, subcategoria incorreta, ou envio fora do prazo.</p>
+            <p>✔️ Estudantes não selecionados, mas que concluíram a unidade do concurso e enviaram link válido, receberão certificado de participação.<br>
+            ✔️ Projetos selecionados na etapa escolar ganham certificados e cerimônia interna.<br>
+            ✔️ Finalistas estaduais premiados conforme divulgação oficial.</p>
+            <p><strong>🚫 Eliminação automática:</strong> link inválido, cópia, repositório privado, falta de termo, subcategoria incorreta, envio fora do prazo.</p>
         </div>
     </div>
 
-    <!-- INFORMAÇÕES ADICIONAIS / OBSERVAÇÕES -->
+    <!-- ORIENTAÇÕES FRONT-END -->
     <div class="card">
         <div class="card-header">
             <h2>⚙️ Orientações Técnicas - Subcategoria 3 (Front-End)</h2>
         </div>
         <div class="card-body">
-            <p>✅ Os projetos <strong>HTML/CSS/JS</strong> devem estar em um repositório público GitHub. No campo "About" do repositório, deve estar declarado o link funcional do GitHub Pages ou Vercel.<br>
-            ✅ Não será aceito código CSS ou JavaScript <strong>inline ou interno</strong> dentro do arquivo HTML. Tudo deve estar em arquivos separados (.css / .js) devidamente linkados.<br>
-            ✅ Proibido uso de frameworks (React, Vue, Bootstrap, Tailwind etc). Apenas HTML, CSS puro e JavaScript vanilla.<br>
-            ✅ O projeto precisa estar completo e navegável, de preferência responsivo, abordando a temática “Agro forte, futuro sustentável”.</p>
-            <div class="highlight">
-                🌟 Dica: Capriche na experiência do usuário, na acessibilidade e na mensagem de equilíbrio entre produção rural e preservação ambiental.
-            </div>
+            <p>✅ Repositório público GitHub com link do GitHub Pages ou Vercel declarado no campo "About".<br>
+            ✅ Código CSS/JS em arquivos separados (nada de inline/interno).<br>
+            ✅ Sem frameworks (apenas HTML, CSS puro, JS vanilla).<br>
+            ✅ Projeto responsivo, abordando a temática sustentável.</p>
+            <div class="highlight">🌟 Dica: experiência do usuário, acessibilidade e equilíbrio entre produção rural e preservação ambiental.</div>
         </div>
     </div>
 
@@ -416,21 +584,165 @@
         </div>
         <div class="card-body">
             <table>
-                <tr><th>Evento</th><th>Prazo / Período</th></tr>
-                <tr><td>Inscrição + envio do link no ambiente virtual (Alura)</td><td>Até 14/06/2026 (23h59)</td></tr>
-                <tr><td>Seleção escolar e encaminhamento ao NRE</td><td>Formulário NRE entre 29/06 e 01/07/2026</td></tr>
-                <tr><td>Avaliação Regional (NRE)</td><td>Julho/2026 (conforme cronograma de cada NRE)</td></tr>
-                <tr><td>Divulgação finalistas estaduais</td><td>A ser divulgada pelos canais oficiais</td></tr>
+                <thead><tr><th>Evento</th><th>Prazo / Período</th></tr></thead>
+                <tbody>
+                    <tr><td>Inscrição + envio do link (ambiente Alura)</td><td>Até 14/06/2026 (23h59)</td></tr>
+                    <tr><td>Seleção escolar e envio ao NRE</td><td>Formulário NRE entre 29/06 e 01/07/2026</td></tr>
+                    <tr><td>Avaliação Regional (NRE)</td><td>Julho/2026</td></tr>
+                    <tr><td>Divulgação finalistas estaduais</td><td>Canais oficiais</td></tr>
+                </tbody>
             </table>
-            <p style="margin-top: 1rem;">📢 Fique atento às comunicações oficiais do NRE e do site <strong>https://www.sistemafaep.org.br/agrinho/</strong> para resultados e orientações adicionais.</p>
+            <p>📢 Site oficial: <strong>https://www.sistemafaep.org.br/agrinho/</strong></p>
         </div>
     </div>
 </div>
 
 <footer>
     <p>© 2026 Concurso de Programação - SENAR-PR / SEED-PR | "Agro forte, futuro sustentável: equilíbrio entre produção e meio ambiente"</p>
-    <p>Dúvidas: contate os Embaixadores da Programação Paraná no seu Núcleo Regional de Educação.</p>
+    <p>Dúvidas: contate os Embaixadores da Programação Paraná no seu Núcleo Regional de Educação ou use o assistente virtual ao lado.</p>
 </footer>
 
+<!-- CHATBOT IA - CANTO INFERIOR DIREITO -->
+<div class="chatbot-container">
+    <div class="chat-toggle" id="chatToggleBtn" aria-label="Abrir chat de dúvidas">
+        🤖💬
+    </div>
+    <div class="chat-window hidden" id="chatWindow">
+        <div class="chat-header">
+            <span>🌾 Assistente Virtual - Dúvidas Agrinho</span>
+            <button class="close-chat" id="closeChatBtn" aria-label="Fechar chat">✕</button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot-message">
+                Olá! Sou a IA do Concurso Agrinho 2026. <br>
+                Posso tirar dúvidas sobre prazos, subcategorias, requisitos, envio de projetos e regras. <br>
+                Exemplo: "Qual o prazo final?" ou "Posso usar framework no front-end?" 😊
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Digite sua pergunta...">
+            <button class="send-btn" id="sendChatBtn">Enviar</button>
+        </div>
+        <div class="chat-footer-note">
+            Baseado no regulamento oficial SENAR-PR / SEED-PR
+        </div>
+    </div>
+</div>
+
+<script>
+    // ELEMENTOS DO CHAT
+    const toggleBtn = document.getElementById('chatToggleBtn');
+    const chatWindow = document.getElementById('chatWindow');
+    const closeChatBtn = document.getElementById('closeChatBtn');
+    const chatInput = document.getElementById('chatInput');
+    const sendBtn = document.getElementById('sendChatBtn');
+    const messagesContainer = document.getElementById('chatMessages');
+
+    // FUNÇÃO PARA MOSTRAR/ESCONDER CHAT
+    function openChat() {
+        chatWindow.classList.remove('hidden');
+    }
+    function closeChat() {
+        chatWindow.classList.add('hidden');
+    }
+    toggleBtn.addEventListener('click', () => {
+        if (chatWindow.classList.contains('hidden')) {
+            openChat();
+        } else {
+            closeChat();
+        }
+    });
+    closeChatBtn.addEventListener('click', closeChat);
+
+    // RESPOSTAS INTELIGENTES BASEADAS NO REGULAMENTO
+    function getBotAnswer(question) {
+        const q = question.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        // prazos
+        if (q.includes('prazo') || q.includes('data final') || q.includes('inscrição até') || q.includes('enviar até')) {
+            return "📅 O prazo final para envio do link do projeto no ambiente virtual (Alura) é 14/06/2026 às 23h59 (horário de Brasília). Após essa data, nenhuma alteração será aceita.";
+        }
+        // subcategorias
+        if (q.includes('subcategoria') || (q.includes('qual categoria') && (q.includes('pertenço') || q.includes('encaixo')))) {
+            return "🎯 Subcategoria 1: 6º e 7º anos EF (Scratch). Subcategoria 2: 8º e 9º anos EF (Scratch). Subcategoria 3: Ensino Médio (Front-end: HTML, CSS, JS). Consulte o item 4 do regulamento.";
+        }
+        // scratch
+        if (q.includes('scratch') && (q.includes('link') || q.includes('compartilhar') || q.includes('remix'))) {
+            return "🧩 Projetos Scratch: link público, sem remix, com compartilhamento habilitado. Exemplo: https://scratch.mit.edu/projects/SEU_ID. Não pode ser cópia de outro projeto existente.";
+        }
+        // front-end / framework
+        if ((q.includes('front') || q.includes('html') || q.includes('css') || q.includes('framework')) && (q.includes('pode') || q.includes('permitido'))) {
+            return "💻 Subcategoria 3: É proibido uso de frameworks (React, Bootstrap, Tailwind etc). Use HTML, CSS puro e JavaScript vanilla. Código deve estar em arquivos separados (nada de inline/interno).";
+        }
+        // github pages
+        if (q.includes('github') && (q.includes('pages') || q.includes('repositório'))) {
+            return "🔗 Repositório público GitHub, com todos os arquivos. No campo 'About' do repositório, declare o link funcional do GitHub Pages ou Vercel. O site deve estar acessível.";
+        }
+        // termos / consentimento
+        if (q.includes('termo') || q.includes('consentimento') || q.includes('documento') || q.includes('autorização')) {
+            return "📄 Sim, é obrigatório o Termo de consentimento para menores de idade (assinado pelo responsável) e Termo de uso de imagem para maiores. Os modelos estão no site sistemafaep.org.br/agrinho/";
+        }
+        // etapas
+        if (q.includes('etapa') || q.includes('seleção') || q.includes('regional') || q.includes('escolar')) {
+            return "🏆 Etapa Escolar: escola seleciona até 3 projetos por subcategoria. Etapa Regional: NRE escolhe até 3 por subcategoria. Etapa Estadual: finalistas. Envio escolar ao NRE entre 29/06 e 01/07/2026 via formulário.";
+        }
+        // certificado
+        if (q.includes('certificado') || q.includes('participação') || q.includes('certificação')) {
+            return "📜 Alunos que submeterem link válido e concluírem a unidade do concurso, mesmo não sendo selecionados, receberão certificado de participação (impresso pela escola).";
+        }
+        // eliminação / desclassificação
+        if (q.includes('desclassificado') || q.includes('eliminado') || q.includes('inválido')) {
+            return "⚠️ Causas de desclassificação: link inválido, cópia (remix/merge), repositório privado, ausência de termo, subcategoria incorreta, envio fora do prazo ou código inline no front-end.";
+        }
+        // professor responsável
+        if (q.includes('professor') || q.includes('envio regional') || q.includes('quem envia')) {
+            return "👩‍🏫 O envio dos projetos à etapa regional deve ser feito pelo professor regente, usando e-mail institucional (@escola.pr.gov.br) através do formulário do NRE. Não é permitido envio por e-mail comum.";
+        }
+        // alura / unidades
+        if (q.includes('alura') || q.includes('unidades') || q.includes('unidade concluída')) {
+            return "📚 É necessário ter no mínimo 2 unidades concluídas na Alura (Trilha de Estudos 2026). Unidades de divulgação do concurso Agrinho 2026 NÃO contam para esse mínimo.";
+        }
+        // rubrica / nota
+        if (q.includes('rubrica') || q.includes('avaliação') || q.includes('critério') || q.includes('nota')) {
+            return "📋 A rubrica avalia: Adequação ao tema (30 pts), Criatividade (25 pts), Qualidade técnica (25 pts) e Funcionalidade (20 pts). Total 100 pontos. Desempate por originalidade e código.";
+        }
+        // tema geral
+        if (q.includes('tema') || q.includes('agro forte') || q.includes('sustentável')) {
+            return "🌱 O tema é 'Agro forte, futuro sustentável: equilíbrio entre produção e meio ambiente'. O projeto deve explorar a harmonia entre atividades agropecuárias e preservação ambiental.";
+        }
+        
+        return "🤖 Não entendi completamente. Consulte o regulamento no site oficial ou pergunte de outra forma. Ex: 'prazo de inscrição', 'subcategoria 3 front-end', 'documentos necessários'. Estou aqui para ajudar!";
+    }
+
+    // Adicionar mensagem ao chat
+    function addMessage(text, isUser) {
+        const msgDiv = document.createElement('div');
+        msgDiv.classList.add('message');
+        msgDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+        msgDiv.textContent = text;
+        messagesContainer.appendChild(msgDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    // Processar envio
+    function handleSend() {
+        const userText = chatInput.value.trim();
+        if (userText === "") return;
+        addMessage(userText, true);
+        chatInput.value = "";
+        // Simula pequeno delay para resposta da IA
+        setTimeout(() => {
+            const answer = getBotAnswer(userText);
+            addMessage(answer, false);
+        }, 300);
+    }
+
+    sendBtn.addEventListener('click', handleSend);
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            handleSend();
+        }
+    });
+</script>
 </body>
 </html>
